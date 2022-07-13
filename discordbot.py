@@ -16,7 +16,7 @@ RoleSheetName = os.environ['ROLE_SHEET']
 
 
 guildid = os.environ['GUILD_ID']
-rolemessageid = os.environ['ROLE_MESSAGE_ID']
+rolechannelid = os.environ['ROLE_CHANNEL_ID']
 discoveryUrl = ('https://sheets.googleapis.com/$discovery/rest?'
                     'version=v4')
 service = discovery.build(
@@ -43,7 +43,7 @@ async def on_ready():
 #添加身分組
 @client.event
 async def on_raw_reaction_add(payload):
-    if payload.message_id == rolemessageid:
+    if payload.channel_id == rolechannelid:
         guild = client.get_guild(guildid)
         result = service.spreadsheets().values().get(
         spreadsheetId=SpreadsheetId, range=reactRange).execute()
@@ -59,7 +59,7 @@ async def on_raw_reaction_add(payload):
 #移除身分組
 @client.event
 async def on_raw_reaction_remove(payload):
-    if payload.message_id == rolemessageid:
+    if payload.channel_id == rolechannelid:
         guild = client.get_guild(guildid)
         result = service.spreadsheets().values().get(
         spreadsheetId=SpreadsheetId, range=reactRange).execute()
