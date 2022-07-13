@@ -16,7 +16,7 @@ RoleSheetName = os.environ['ROLE_SHEET']
 
 
 guildid = os.environ['GUILD_ID']
-rolechannelid = os.environ['ROLE_CHANNEL_ID']
+rolemessageid = os.environ['ROLE_MESSAGE_ID']
 discoveryUrl = ('https://sheets.googleapis.com/$discovery/rest?'
                     'version=v4')
 service = discovery.build(
@@ -43,16 +43,13 @@ async def on_ready():
 #添加身分組
 @client.event
 async def on_raw_reaction_add(payload):
-    print("add role1")
-    if payload.channel_id == rolechannelid:
-        print("add role")
-        guild = client.get_guild(guildid)
+    if str(payload.message_id) == rolemessageid:
+        guild = client.get_guild(int(guildid))
         result = service.spreadsheets().values().get(
         spreadsheetId=SpreadsheetId, range=reactRange).execute()
         values = result.get('values', [])
         if not values:
             return
-        print(values)
         for row in values:
             if payload.emoji.name == row[0]:
                 role = discord.utils.get(guild.roles, name=row[1])
@@ -62,9 +59,8 @@ async def on_raw_reaction_add(payload):
 #移除身分組
 @client.event
 async def on_raw_reaction_remove(payload):
-    print("-role1")
-    if payload.channel_id == rolechannelid:
-        guild = client.get_guild(guildid)
+    if str(payload.message_id) == rolemessageid:
+        guild = client.get_guild(int(guildid))
         result = service.spreadsheets().values().get(
         spreadsheetId=SpreadsheetId, range=reactRange).execute()
         values = result.get('values', [])
