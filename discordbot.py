@@ -44,12 +44,14 @@ async def on_ready():
 @client.event
 async def on_raw_reaction_add(payload):
     if payload.channel_id == rolechannelid:
+        print("add role")
         guild = client.get_guild(guildid)
         result = service.spreadsheets().values().get(
         spreadsheetId=SpreadsheetId, range=reactRange).execute()
         values = result.get('values', [])
         if not values:
             return
+        print(values)
         for row in values:
             if payload.emoji.name == row[0]:
                 role = discord.utils.get(guild.roles, name=row[1])
