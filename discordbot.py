@@ -43,6 +43,7 @@ async def on_ready():
 #添加身分組
 @client.event
 async def on_raw_reaction_add(payload):
+    print("add role1")
     if payload.channel_id == rolechannelid:
         print("add role")
         guild = client.get_guild(guildid)
@@ -61,6 +62,7 @@ async def on_raw_reaction_add(payload):
 #移除身分組
 @client.event
 async def on_raw_reaction_remove(payload):
+    print("-role1")
     if payload.channel_id == rolechannelid:
         guild = client.get_guild(guildid)
         result = service.spreadsheets().values().get(
