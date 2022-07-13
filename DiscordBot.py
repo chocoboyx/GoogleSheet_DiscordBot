@@ -2,12 +2,10 @@ from distutils.log import error
 import discord
 from discord.ext import commands
 from pprint import pprint
-import googletrans
 import httplib2
 import os
 from apiclient import discovery
 import random
-import asyncio
 TOKEN = os.environ['TOKEN']
 APIKey = os.environ['APIKEY']
 SpreadsheetId = os.environ['SHEET_ID']
