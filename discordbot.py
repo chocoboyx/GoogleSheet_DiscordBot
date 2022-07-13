@@ -6,6 +6,7 @@ import httplib2
 import os
 from apiclient import discovery
 import random
+import asyncio
 TOKEN = os.environ['TOKEN']
 APIKey = os.environ['APIKEY']
 SpreadsheetId = os.environ['SHEET_ID']
@@ -128,3 +129,5 @@ async def on_message(message):
                             await message.channel.send(msgs[index].replace('<username>',username))
                     return
     
+# Bot起動
+client.run(TOKEN)
