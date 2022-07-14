@@ -24,4 +24,4 @@ ROLE_SHEET：身分組領取Google試算表單名
 GUILD_ID：伺服器ID
 ROLE_MESSAGE_ID：身分組領取訊息ID
 
-試算表範例:https://docs.google.com/spreadsheets/d/1qszK1eWRtVvph0cqUFS0n_LGvQLrkiZiauSO9-TKcUU/edit#gid=1525750857
+[試算表範例](https://docs.google.com/spreadsheets/d/1qszK1eWRtVvph0cqUFS0n_LGvQLrkiZiauSO9-TKcUU/edit#gid=1525750857)
