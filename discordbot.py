@@ -10,13 +10,12 @@ import asyncio
 TOKEN = os.environ['TOKEN']
 APIKey = os.environ['APIKEY']
 SpreadsheetId = os.environ['SHEET_ID']
-# 輸入自己Bot的TOKEN碼
 ReplySheetName = os.environ['REPLY_SHEET']
 RoleSheetName = os.environ['ROLE_SHEET']
-
-
 guildid = os.environ['GUILD_ID']
 rolemessageid = os.environ['ROLE_MESSAGE_ID']
+
+#Google API
 discoveryUrl = ('https://sheets.googleapis.com/$discovery/rest?'
                     'version=v4')
 service = discovery.build(
