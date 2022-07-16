@@ -38,3 +38,4 @@ Google試算表ID
 身分組領取訊息ID
 
 [試算表範例](https://docs.google.com/spreadsheets/d/1qszK1eWRtVvph0cqUFS0n_LGvQLrkiZiauSO9-TKcUU/edit#gid=1525750857)
+[影片教學](https://www.youtube.com/watch?v=mVlIKmtEr7g)
